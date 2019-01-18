@@ -26,18 +26,24 @@ class App extends Component {
 
   render() {
     return (
-      <Split>
-        <AceEditor
-          mode="markdown"
-          theme="monokai"
-          onChange={newContent => {
-            this.setState({ loadedFile: newContent })
-          }}
-          name="markdown_editor"
-          value={this.state.loadedFile}
-        />
-        <Markdown>{this.state.loadedFile}</Markdown>
-      </Split>
+      <div>
+        <Split>
+          <CodeWIndow>
+          <AceEditor
+            mode="markdown"
+            theme="monokai"
+            onChange={newContent => {
+              this.setState({ loadedFile: newContent })
+            }}
+            name="markdown_editor"
+            value={this.state.loadedFile}
+            />
+          </CodeWIndow>
+          <RenderedWindow>
+            <Markdown>{this.state.loadedFile}</Markdown>
+          </RenderedWindow>
+        </Split>
+      </div>
     )
   }
 }
@@ -47,4 +53,34 @@ export default App
 const Split = styled.div`
   display: flex;
   height: 100vh;
+`
+
+const CodeWIndow = styled.div`
+  flex: 1;
+  padding-top: 2rem;
+  background-color: #191324;
+`
+
+const RenderedWindow = styled.div`
+  background-color: #191324;
+  width: 35%;
+  padding: 20px;
+  border-left: 1px solid #302b31;
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h5 {
+    color: #82d8d8;
+  }
+
+  h1 {
+    border-bottom: solid 3px #e54b4b;
+  }
+
+  a {
+    color: #e54b4b;
+  }
 `
