@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Markdown from 'markdown-to-jsx';
 import AceEditor from 'react-ace'
+// @ts-ignore
 import brace from 'brace'
 import  'brace/mode/markdown'
 import 'brace/theme/monokai'
